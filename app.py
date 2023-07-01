@@ -5,9 +5,11 @@ from sklearn.preprocessing import LabelEncoder
 from PIL import Image
 from keras.models import Sequential
 from keras.layers import Conv2D, MaxPooling2D, Flatten, BatchNormalization, Dropout
+import warnings
 
 app = Flask(__name__)
 app.config['ALLOWED_EXTENSIONS'] = set(['png', 'jpg', 'jpeg'])
+warnings.filterwarnings("ignore")
 
 #Load your RF model here
 loaded_modelRF = joblib.load(open('RF4Class.h5','rb'))
