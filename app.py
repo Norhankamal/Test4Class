@@ -1,7 +1,4 @@
 from flask import Flask, request, jsonify, render_template
-from werkzeug.utils import secure_filename
-import os
-import cv2
 import numpy as np
 import joblib
 from sklearn.preprocessing import LabelEncoder
@@ -81,7 +78,7 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']
 
 # API endpoint for image upload
-@app.route('/predict', methods=['GET', 'POST'])
+@app.route('/predict', methods=['POST'])
 def predict():
     global prediction_made
     # Check if a file was uploaded
